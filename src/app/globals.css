@@ -1,0 +1,222 @@
+:root {
+	/* H1 */
+	--h1-font-family: "Fund";
+	--h1-font-weight: 500;
+	--h1-font-size: 56px;
+	--h1-line-height: 70px;
+
+	/* H2 */
+	--h2-font-family: "Fund";
+	--h2-font-weight: 500;
+	--h2-font-size: 48px;
+	--h2-line-height: 60px;
+
+	/* H3 */
+	--h3-font-family: "Fund";
+	--h3-font-weight: 500;
+	--h3-font-size: 40px;
+	--h3-line-height: 50px;
+
+	/* H4 */
+	--h4-font-family: "Fund";
+	--h4-font-weight: 500;
+	--h4-font-size: 32px;
+	--h4-line-height: 40px;
+
+	/* H5 */
+	--h5-font-family: "Fund";
+	--h5-font-weight: 500;
+	--h5-font-size: 24px;
+	--h5-line-height: 30px;
+
+	/* H6 */
+	--h6-font-family: "Fund";
+	--h6-font-weight: 500;
+	--h6-font-size: 20px;
+	--h6-line-height: 25px;
+
+	/* Title 1 */
+	--title1-font-family: "Fund";
+	--title1-font-weight: 400;
+	--title1-font-size: 18px;
+	--title1-line-height: 25px;
+
+	/* Title 2 */
+	--title2-font-family: "Fund";
+	--title2-font-weight: 400;
+	--title2-font-size: 16px;
+	--title2-line-height: 20px;
+
+	/* SubTitle 1 */
+	--subtitle1-font-family: "Fund";
+	--subtitle1-font-weight: 500;
+	--subtitle1-font-size: 16px;
+	--subtitle1-line-height: 20px;
+
+	/* SubTitle 2 */
+	--subtitle2-font-family: "Fund";
+	--subtitle2-font-weight: 500;
+	--subtitle2-font-size: 14px;
+	--subtitle2-line-height: 20px;
+
+	/* Body 1 */
+	--body1-font-family: "Fund";
+	--body1-font-weight: 300;
+	--body1-font-size: 16px;
+	--body1-line-height: 20px;
+
+	/* Body 2 */
+	--body2-font-family: "Fund";
+	--body2-font-weight: 300;
+	--body2-font-size: 14px;
+	--body2-line-height: 20px;
+
+	/* Button */
+	--button-font-family: "Fund";
+	--button-font-weight: 400;
+	--button-font-size: 16px;
+	--button-line-height: 20px;
+
+	/* Underline Link 1 */
+	--underline-link1-font-family: "Fund";
+	--underline-link1-font-weight: 400;
+	--underline-link1-font-size: 16px;
+	--underline-link1-line-height: 20px;
+
+	/* Underline Link 2 */
+	--underline-link2-font-family: "Fund";
+	--underline-link2-font-weight: 400;
+	--underline-link2-font-size: 14px;
+	--underline-link2-line-height: 20px;
+
+	/* Main Colors */
+	--color-primary-green: #005c4d; /* Dark Green */
+	--color-primary-light-green1: #007f71; /* Green */
+	--color-primary-light-green2: #539f94; /* Light Green */
+	--color-primary-light-green3: #8fbfb8; /* Lighter Green */
+	--color-primary-light-green4: #c8dfdb; /* Lightest Green */
+
+	--color-primary-gold: #cc963f; /* Gold */
+	--color-primary-light-gold1: #d7ab68; /* Light Gold */
+	--color-primary-light-gold2: #e1c08f; /* Light Gold 2 */
+	--color-primary-light-gold3: #ebd5b5; /* Lighter Gold */
+	--color-primary-light-gold4: #f5eada; /* Lightest Gold */
+
+	/* Secondary Colors */
+	--color-secondary-brown: #bc6322;
+	--color-secondary-purple1: #600080;
+	--color-secondary-purple2: #29176f;
+	--color-secondary-red: #b31d42;
+	--color-secondary-teal: #015a66;
+
+	/* Other Colors */
+	--color-other-dark-green: #00352b;
+	--color-other-mint-green: #00d196;
+	--color-other-light-mint: #53ffe1;
+
+	/* Dark Mode */
+	--color-dark-1: #232323;
+	--color-dark-2: #3b3b3b;
+	--color-dark-3: #5b5b5b;
+
+	/* Function Colors (Buttons) */
+	--color-button-static: #cc963f;
+	--color-button-hover: #ebd5b5;
+	--color-button-active: #d7ab68;
+	--color-button-loading: #cc963f;
+	--color-button-disable: #b8b8b8;
+
+	/* Status Colors */
+	--color-status-green: #3aaa35;
+	--color-status-red: #ce2828;
+	--color-status-orange: #faad14;
+	--color-status-blue: #004de5;
+	--color-status-gray: #b8b8b8;
+	--color-status-black: #292929;
+
+	/* Gray Colors */
+	--color-gray-1: #292929; /* Darkest Gray */
+	--color-gray-2: #525252;
+	--color-gray-3: #858585;
+	--color-gray-4: #b8b8b8;
+	--color-gray-5: #e0e0e0;
+	--color-gray-6: #ebebeb;
+	--color-gray-7: #f2f2f2;
+	--color-gray-100: #12131a;
+
+	--font-light: "Fund", sans-serif;
+	font-weight: 300;
+	--font-regular: "Fund", sans-serif;
+	font-weight: 400;
+	--font-medium: "Fund", sans-serif;
+	font-weight: 500;
+	--font-semibold: "Fund", sans-serif;
+	font-weight: 600;
+}
+
+/* Font Face Declarations */
+@font-face {
+	font-family: "Fund";
+	src: url("/fonts/Fund-Light.ttf") format("truetype");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Fund";
+	src: url("/fonts/Fund-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Fund";
+	src: url("/fonts/Fund-Medium.ttf") format("truetype");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Fund";
+	src: url("/fonts/Fund-SemiBold.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+
+html,
+body {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
+body {
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}
