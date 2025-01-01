@@ -1,16 +1,20 @@
-// store/store.ts
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./slices/counterSlice";
+import pagePropertiesSlice from "./slices/pagePropertiesSlice";
+import userDetails from "./slices/userDetailsSlice";
+import pilotFormSlice from "./slices/createPilotSlice";
 
 export const makeStore = () => {
 	return configureStore({
 		reducer: {
-			counter: counterReducer, // Add other reducers here
+			pageProperties: pagePropertiesSlice,
+			counter: counterReducer,
+			userDetails: userDetails,
+			pilotForm: pilotFormSlice,
 		},
 	});
 };
 
-// Types for RootState and AppDispatch
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<AppStore["getState"]>;
 export type AppDispatch = AppStore["dispatch"];
