@@ -21,17 +21,19 @@ async function Pilot() {
 	return (
 		<div className="">
 			<div className="p-30 border-b border-divider">
-				<Text
-					value={"Technologies and Pilots"}
-					tagName={"h4"}
-					classes="text-h4 font-semibold"
-				/>
+				<div className="flex flex-row justify-between">
+					<Text
+						value={"Technologies and Pilots"}
+						tagName={"h4"}
+						classes="text-h4 font-semibold"
+					/>
 
-				<Link
-					className={`w-fit mx-auto  px-20 py-[13px] border border-secondary-brown bg-secondary-brown text-white rounded-full text-button font-regular`}
-					href="/create-new-pilot">
-					Create New Pilot
-				</Link>
+					<Link
+						className={`w-fit px-20 py-[13px] border border-secondary-brown bg-secondary-brown text-white rounded-full text-button font-regular`}
+						href="/create-new-pilot">
+						Create New Pilot
+					</Link>
+				</div>
 			</div>
 
 			<TabsComponent pilotsData={data.data} />

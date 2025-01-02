@@ -27,6 +27,8 @@ const PioltCard = ({ name, description, location, startDate, owner, stage, objec
 					src={image}
 					alt={name}
 					className="w-full h-40 md:h-full object-cover rounded-lg"
+					width={16}
+					height={9}
 				/>
 			</div>
 
