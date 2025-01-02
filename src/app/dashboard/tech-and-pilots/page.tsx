@@ -2,25 +2,36 @@
 import TabsComponent from "@/app/components/tabs-component/tabs-componet";
 import Text from "@/app/components/text/text";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { FormState } from "@/app/libs/store/slices/createPilotSlice";
 
-async function getPilotsData() {
-	try {
-		const DOMAIN = process.env.DOMAIN || "http://localhost:3000";
-		const response = await axios.get(`${DOMAIN}/api/common/get-pilots`);
+const Pilot: React.FC = () => {
+	const [pilotsData, setPilotsData] = useState<FormState[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
 
-		return response.data;
-	} catch (error) {
-		console.error("Error fetching data:", error);
+	const getPilotsData = async () => {
+		try {
+			const DOMAIN = process.env.DOMAIN || "http://localhost:3000";
+			const response = await axios.get(`${DOMAIN}/api/common/get-pilots`);
+			setPilotsData(response.data.data); // Update state with fetched data
+			setLoading(false);
+		} catch (error) {
+			console.error("Error fetching data:", error);
+			setLoading(false);
+		}
+	};
+
+	useEffect(() => {
+		getPilotsData();
+	}, []);
+
+	if (loading) {
+		return <div>Loading...</div>;
 	}
-}
-
-async function Pilot() {
-	const data = await getPilotsData();
 
 	return (
-		<div className="">
+		<div>
 			<div className="p-30 border-b border-divider">
 				<div className="flex flex-row justify-between">
 					<Text
@@ -37,9 +48,9 @@ async function Pilot() {
 				</div>
 			</div>
 
-			<TabsComponent pilotsData={data.data} />
+			{pilotsData ? <TabsComponent pilotsData={pilotsData} /> : <div>No Data Found</div>}
 		</div>
 	);
-}
+};
 
 export default Pilot;
