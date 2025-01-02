@@ -1,3 +1,4 @@
+"use client";
 import TabsComponent from "@/app/components/tabs-component/tabs-componet";
 import Text from "@/app/components/text/text";
 import Link from "next/link";
