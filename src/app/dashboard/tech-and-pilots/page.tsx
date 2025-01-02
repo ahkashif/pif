@@ -6,7 +6,8 @@ import axios from "axios";
 
 async function getPilotsData() {
 	try {
-		const response = await axios.get("http://localhost:3000/api/common/get-pilots");
+		const DOMAIN = process.env.DOMAIN || "http://localhost:3000";
+		const response = await axios.get(`${DOMAIN}/api/common/get-pilots`);
 
 		return response.data;
 	} catch (error) {
