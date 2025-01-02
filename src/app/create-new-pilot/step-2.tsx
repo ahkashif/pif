@@ -2,7 +2,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import React, { Ref } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { updateStepData, Step2Data } from "../libs/store/slices/createPilotSlice";
+import { updateFormData, Step2Data } from "../libs/store/slices/createPilotSlice";
 
 interface FormData {
 	companyPortfolio: string;
@@ -23,11 +23,7 @@ function Step2({ step2Ref, onStepChange }: { step2Ref: Ref<HTMLButtonElement>; o
 	const onSubmit: SubmitHandler<FormData> = (data) => {
 		if (Object.keys(errors).length === 0 && Object.keys(touchedFields).length > 0) {
 			onStepChange(2);
-			console.log("Form Data:", {
-				...data,
-			});
-
-			dispatch(updateStepData({ step: "step2", data: { ...(data as Partial<Step2Data>) } }));
+			dispatch(updateFormData({ step: "step2", data: { ...(data as Partial<Step2Data>) } }));
 		}
 	};
 

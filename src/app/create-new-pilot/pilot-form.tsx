@@ -4,7 +4,7 @@ import FileUpload from "./file-upload";
 import Step3 from "./step-3";
 import Step2 from "./step-2";
 import { useDispatch, useSelector } from "react-redux";
-import { Step1Data, updateStepData } from "../libs/store/slices/createPilotSlice";
+import { Step1Data, updateFormData } from "../libs/store/slices/createPilotSlice";
 
 import { RootState } from "../libs/store/store";
 
@@ -32,7 +32,7 @@ export const Step1 = ({
 	onStepChange: (step: number) => void;
 }) => {
 	const dispatch = useDispatch();
-	const formData = useSelector((state: RootState) => state.pilotForm.step1) || {};
+	const formData = useSelector((state: RootState) => state.pilotForm.forms[state.pilotForm.forms.length]?.step1) || {};
 	const base64Image = formData.image;
 
 	const {
@@ -116,7 +116,7 @@ export const Step1 = ({
 				image: base64String,
 			});
 
-			dispatch(updateStepData({ step: "step1", data: { ...(data as Partial<Step1Data>) } }));
+			dispatch(updateFormData({ step: "step1", data: { ...(data as Partial<Step1Data>) } }));
 		}
 	};
 

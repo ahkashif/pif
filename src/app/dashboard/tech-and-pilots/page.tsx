@@ -4,21 +4,26 @@ import Text from "@/app/components/text/text";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FormState } from "@/app/libs/store/slices/createPilotSlice";
+import { FormState, initializeFormData } from "@/app/libs/store/slices/createPilotSlice";
+import { useDispatch } from "react-redux";
+import { setLoading } from "../../libs/store/slices/pagePropertiesSlice";
+import GlobalLoading from "@/app/components/atoms/loader";
 
 const Pilot: React.FC = () => {
 	const [pilotsData, setPilotsData] = useState<FormState[]>([]);
-	const [loading, setLoading] = useState<boolean>(true);
+	const dispatch = useDispatch();
 
 	const getPilotsData = async () => {
 		try {
+			dispatch(setLoading({ loading: true }));
 			const DOMAIN = process.env.DOMAIN || "http://localhost:3000";
 			const response = await axios.get(`${DOMAIN}/api/common/get-pilots`);
-			setPilotsData(response.data.data); // Update state with fetched data
-			setLoading(false);
+			dispatch(initializeFormData(response.data.data));
+			setPilotsData(response.data.data);
+			dispatch(setLoading({ loading: false }));
 		} catch (error) {
 			console.error("Error fetching data:", error);
-			setLoading(false);
+			dispatch(setLoading({ loading: false }));
 		}
 	};
 
@@ -26,12 +31,11 @@ const Pilot: React.FC = () => {
 		getPilotsData();
 	}, []);
 
-	if (loading) {
-		return <div>Loading...</div>;
-	}
-
 	return (
 		<div>
+			<div className="grid place-items-center">
+				<GlobalLoading />
+			</div>
 			<div className="p-30 border-b border-divider">
 				<div className="flex flex-row justify-between">
 					<Text

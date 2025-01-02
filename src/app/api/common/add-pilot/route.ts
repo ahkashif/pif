@@ -56,6 +56,8 @@ export async function POST(request: NextRequest) {
 			step3,
 		});
 
+		console.log(pilotForm);
+
 		await pilotForm.save();
 
 		return NextResponse.json({ error: "Pilot form data saved successfully!" }, { status: 200 });

@@ -3,9 +3,9 @@ import React, { Ref } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../libs/store/store";
-import { updateStepData, Step3Data } from "../libs/store/slices/createPilotSlice";
+import { updateFormData, Step3Data } from "../libs/store/slices/createPilotSlice";
 import axios from "axios";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 
 interface FormData {
 	planningPhase: string;
@@ -16,23 +16,28 @@ interface FormData {
 
 function Step3({ step3Ref }: { step3Ref: Ref<HTMLButtonElement> }) {
 	const dispatch = useDispatch();
+	const router = useRouter();
 	const {
 		register,
 		handleSubmit,
 		formState: { errors, touchedFields },
 	} = useForm<FormData>();
 
-	const formData = useSelector((state: RootState) => state.pilotForm);
+	const formData = useSelector((state: RootState) => state.pilotForm.forms[state.pilotForm.forms.length - 1]) || {};
 
 	const onSubmit: SubmitHandler<FormData> = async (data) => {
 		if (Object.keys(errors).length === 0 && Object.keys(touchedFields).length > 0) {
-			dispatch(updateStepData({ step: "step3", data: { ...(data as Partial<Step3Data>) } }));
+			dispatch(updateFormData({ step: "step3", data: { ...(data as Partial<Step3Data>) } }));
 
 			try {
-				const response = await axios.post("/api/common/add-pilot", { ...formData, step3: data });
+				const response = await axios.post("/api/common/add-pilot", {
+					step1: { ...formData.step1 },
+					step2: { ...formData.step2 },
+					step3: data,
+				});
 				if (response.status === 200) {
 					console.log("Pilot Added", response);
-					router.push("/pilots");
+					router.push("/dashboard/tech-and-pilots");
 				}
 			} catch (error) {
 				console.log(error);

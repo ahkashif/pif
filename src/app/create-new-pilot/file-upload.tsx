@@ -29,6 +29,8 @@ const FileUpload: React.FC<{
 							src={previewImage}
 							alt="Preview"
 							className="max-h-full max-w-full object-cover rounded-md"
+							width={500}
+							height={250}
 						/>
 					</div>
 				) : (

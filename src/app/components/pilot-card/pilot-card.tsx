@@ -1,6 +1,7 @@
 import React from "react";
 import Icon from "../icon/icons";
 import Image from "next/image";
+import { renderDate } from "@/app/libs/common/utils";
 
 interface PilotCardTypes {
 	name: string;
@@ -26,14 +27,14 @@ const PioltCard = ({ name, description, location, startDate, owner, stage, objec
 				<Image
 					src={image}
 					alt={name}
-					className="w-full h-40 md:h-full object-cover rounded-lg"
-					width={16}
-					height={9}
+					className="max-w-[100%] w-full object-cover rounded-lg"
+					width={560}
+					height={500}
 				/>
 			</div>
 
 			{/* Content Section */}
-			<div className="flex-grow flex flex-col gap-40 px-30 py-20">
+			<div className="flex-grow flex flex-col gap-40 px-30 py-20 justify-between">
 				<div className="flex flex-col gap-10">
 					<h2 className="text-h5 font-semibold">{name}</h2>
 					<p className="text-title2 font-light">{description}</p>
@@ -47,7 +48,7 @@ const PioltCard = ({ name, description, location, startDate, owner, stage, objec
 					</div>
 					<div className="w-[48.5%] border border-divider rounded-[10px] flex flex-row gap-10 items-center px-20 py-10">
 						<Icon name="calender" />
-						<p className="text-title2 font-regular">{startDate}</p>
+						<p className="text-title2 font-regular">{renderDate(startDate)}</p>
 					</div>
 					<div className="w-[48.5%] border border-divider rounded-[10px] flex flex-row gap-10 items-center px-20 py-10">
 						<Icon name="setting" />

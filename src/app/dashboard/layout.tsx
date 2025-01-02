@@ -18,7 +18,7 @@ export default function DashboardLayout({
 		<>
 			<Header />
 			<main className="flex flex-row">
-				<aside className="w-[260px] h-[100dvh] bg-foreground fixed z-30">
+				<aside className="w-[18%] h-[100dvh] bg-foreground fixed z-30">
 					<div className="p-20">
 						<Image
 							src="/pif-logo-dark.svg"
@@ -73,7 +73,7 @@ export default function DashboardLayout({
 						/>
 					</div>
 				</aside>
-				<div className="pt-90 w-[calc(100%-260px)] ml-auto bg-background2">{children}</div>
+				<div className="pt-90 w-[82%] ml-auto bg-background2">{children}</div>
 			</main>
 		</>
 	);
